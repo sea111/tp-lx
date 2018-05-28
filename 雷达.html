@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{padding:0;margin:0;}
+		body{
+			background:#16191C;
+		}
+		.bg{
+			background:#444;
+			width:480px;
+			overflow:hidden;
+		}
+	</style>
+	<body>
+		<div id="sixStart" style="width:500px;height:300px;"></div>
+		<div class="bg">
+			<div id="sxcloudRadar" style="width:480px;height:240px;"></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	<script type="text/javascript" src="js/echarts.min.js" ></script>
+		<script>
+			var myChart = echarts.init(document.getElementById("sixStart"));
+			var option = {
+			    tooltip : {
+			        //trigger: 'axis',
+			        trigger: 'item'//雷达的悬浮
+			    },
+			   	legend: { enabled: false }, // 隐藏图例
+			    polar : [
+			       	{
+			       		name: { 
+			       			show: true,
+			       			textStyle:{
+			       				fontSize:16,
+			       				color:"#333"
+			       			}
+			       		},//字的颜色
+			           indicator : [
+			               { text: '销售', max: 6000},
+			               { text: '管理', max: 16000},
+			               { text: '信息技术', max: 7500},
+			               { text: '客服', max: 12000},
+			               { text: '研发', max: 16000},
+			               { text: '市场', max: 7500}
+			            ],
+			            axisLine: {            // 坐标轴线
+                            show: true,// 默认显示，属性show控制显示与否
+                            lineStyle : {
+                                color : '#08b9e9' // 图表背景网格线的颜色
+                            }
+                        },
+			            splitArea : {
+                            show : true,   
+                            areaStyle : {
+                                color: ["#176795"]  // 图表区域背景网格的颜色
+                            }
+                        },
+                        splitLine : {
+                            show : true,
+                            lineStyle : {
+                                width : 1,
+                                color : '#08b9e9' // 图表背景网格线的颜色
+                            }
+                        }
+			        }
+			    ],
+			    calculable : true,
+			    series : [
+			        {
+			            //name: '预算',
+			            type: 'radar',//图表类型 radar为雷达图
+			            itemStyle: {
+	                        normal: {
+	                        	color : "#ebe457", // 图表中各个图区域的边框线拐点颜色
+	                        }
+	                    },
+			            data : [
+			                {
+			                    value : [3000, 10000, 4000, 5000, 10000, 4000],
+			                    //name : '预算分配',
+			                    itemStyle: {
+                                    normal: {
+                                        areaStyle: {
+                                            type: 'default',
+                                            opacity: 0.6, // 图表中各个图区域的透明度
+                                            color: "#548d82" // 图表中各个图区域的颜色
+                                        }
+                                    }
+                                },
+			                }
+			            ]
+			        }
+			    ]
+			};
+		    myChart.setOption(option); 
+		</script>
+		
+		<script>
+			var myChart = echarts.init(document.getElementById("sxcloudRadar"));
+		    var option = {
+		        title: {
+		            text: 'APP试用次数',
+		            textStyle: {
+		                color: '#fff',
+		                fontSize: 16,
+		                fontFamily:'华文细黑'
+		            }
+		        },
+		        tooltip : {
+			        //trigger: 'axis',
+			        trigger:"item"
+			    },
+		        legend: { 
+		        	//enabled: false
+		        	data:["10人以下","500人以上","400-500人","300-400人","200-300人","100-200人","50-100人","10-50人"]
+		        }, // 隐藏图例
+		        polar : [
+		            {
+		                name: { 
+		                	show: true,
+		                	textStyle:{
+		                		fontSize:12,
+		                		color:"#fff"
+		                	}
+		                },//字的颜色
+		                indicator : [
+		                    { text: '10人以下', max: 10000},
+		                    { text: '500人以上', max: 20000},
+		                    { text: '400-500人', max: 14000},
+		                    { text: '300-400人', max: 10000},
+		                    { text: '200-300人', max: 20000},
+		                    { text: '100-200人', max: 12000},
+		                    { text: '50-100人', max: 8000},
+		                    { text: '10-50人', max: 10000}
+		                ],
+		                axisLine: {            // 坐标轴线
+		                    show: true,// 默认显示，属性show控制显示与否
+		                    lineStyle : {
+		                        color : '#08b9e9' // 图表背景网格线的颜色
+		                    }
+		                },
+		                splitArea : {
+		                    show : true,
+		                    areaStyle : {
+		                        color: ["#176795"]  // 图表区域背景网格的颜色
+		                    }
+		                },
+		                splitLine : {
+		                    show : true,
+		                    lineStyle : {
+		                        width : 1,
+		                        color : '#08b9e9' // 图表背景网格线的颜色
+		                    }
+		                }
+		            }
+		        ],
+		        calculable : true,
+		        series : [
+		            {
+		                // name: '预算',
+		                type: 'radar',//图表类型 radar为雷达图
+		                itemStyle: {
+		                    normal: {
+		                        color : "#ebe457", // 图表中各个图区域的边框线拐点颜色
+		                    }
+		                },
+		                //这里的配置显示数值  
+//		                label: {  
+//		                    normal: {  
+//		                        show: true,  
+//		                        formatter:function(params) {  
+//		                            return params.value;  
+//		                        }  
+//		                    }  
+//		                }, 
+		                data : [
+		                    {
+		                        value : [4000, 15000, 7000, 8000, 15000, 6000,5000,6000],
+		                        name : '人',
+		                        itemStyle: {
+		                            normal: {
+		                                areaStyle: {
+		                                    type: 'default',
+		                                    opacity: 0.6, // 图表中各个图区域的透明度
+		                                    color: "#548d82" // 图表中各个图区域的颜色
+		                                }
+		                            }
+		                        },
+		                    }
+		                ]
+		            }
+		        ]
+		    };
+		    myChart.setOption(option);
+		</script>
+
+		<!--<script type="text/javascript">
+		    var myChart = echarts.init(document.getElementById('sxcloudRadar')); 		
+		    var option = {
+		            title : {
+		            },
+		            tooltip : {
+		                trigger: 'axis'
+		            },
+		            calculable : true,
+		            polar : [
+		                {
+		                    name: { show: true,textStyle:{fontSize:16,color:"#32cd32"}},
+		                    indicator : [
+		                        {text : '解决问题', max  : 100},
+		                        {text : '学习能力', max  : 100},
+		                        {text : '综合', max  : 100},
+		                        {text : '技术能力', max  : 100},
+		                        {text : '业务能力', max  : 100},
+		                        {text : '思维模式', max  : 100}
+		                    ],
+		                    //center : ['50%','50%'],
+		                    radius : 500 //半径，可放大放小雷达图
+		                }
+		            ],
+		            series : [
+		                {
+		                    name:'',
+		                    type: 'radar',//图表类型 radar为雷达图
+		                    itemStyle: {
+		                        normal: {
+		                            lineStyle: {
+		                                color :"#87cefa",
+		                                width : 2
+		                            },
+		                            areaStyle: {
+		                                color:"#87cefa",
+		                                type: 'default'
+		                            }
+		                        }
+		                    },
+		                    symbolSize :6,
+		                    data : [{
+		                        value:[100,80,80,80,80,80]
+		                    }]
+		                }
+		            ]
+		        };
+				myChart.setOption(option); 
+		</script>-->
+</html>

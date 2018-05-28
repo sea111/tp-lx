@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{padding:0;margin:0;}
+		#box{
+			width:100%;
+			overflow:hidden;
+			margin:0 auto;
+		}
+		.inp-com{
+			width:200px;
+			height:30px;
+			line-height:30px;
+			outline:none;
+			border-radius:5px;
+			border:none;
+			margin:10px auto;
+			border:1px solid #ccc;
+		}
+		.inp{
+			padding-left:10px;
+		}
+		.login{
+			border:none;
+			background:dodgerblue;
+			color:#fff;
+			text-align:center;
+			font-size:14px;
+		}
+		#success{
+			display:none;
+		}
+		.wel{
+			font-size:14px;
+			color:#333;
+		}
+	
+	</style>
+	<body>
+		<div id="box">
+			<input id="user" class="inp-com inp" type="text" value="" placeholder="请输入用户名"/><br />
+			<input id="pass" class="inp-com inp" type="text" value="" placeholder="请输入密码"/><br />
+			<button class="inp-com login" id="login">登录</button>
+		</div>
+		<div id="success">
+			<div class="wel">欢迎<span class="user"></span>进入!</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	<script>
+		$("#user").blur(function(){
+			var _val=$(this).val();
+			if(_val==""){
+				$(this).css({"color":"red"}).val("用户名不能为空");
+			}else{
+				$(this).css({"color":"#ccc"}).val("输入正确");
+			}
+		})
+		$("#user").focus(function(){
+			var phone=/^[1][3,4,5,7,8][0-9]{9}$/;
+			var _val=$(this).val();
+			if(!phone.test(_val)){
+				$(this).css({"color":"red"}).val("手机格式不正确");
+			}else{
+				$(this).css({"color":"#ccc"}).val("输入正确");
+			}
+		})
+		$("#pass").blur(function(){
+			if($(this).val()==""){
+				$(this).css({"color":"red"}).val("密码不能为空");
+			}
+		})
+	</script>
+</html>

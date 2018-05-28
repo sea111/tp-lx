@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		a{
+			text-decoration:none;
+		}
+		.nav{
+			background:gray;
+			width:600px;
+			height:30px;
+			line-height:30px;
+			text-align:center;
+			color:#fff;
+			margin:20px auto;
+		}
+		.nav .li-com{
+			display:inline-block;
+			width:100px;
+			cursor:pointer;
+		}
+		.nav .li-com a{
+			color:#fff;
+		}
+		.nav .li-com:hover{
+			background:#1E90FF;
+		}
+		.active{
+			background:#1E90FF;
+		}
+	</style>
+	<body>
+		<ul class="nav"> 
+			<li class="li-com active"><a href="getdata.html" target="_blank">首页</a></li>
+			<li class="li-com"><a href="地图练习.html" target="_blank">产品服务</a></li>
+			<li class="li-com">特色产品</li>
+			<li class="li-com">登录</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	<script>
+		function clickObj(ele){
+			$(ele).mouseover(function(){
+				$(this).css({"background":"#1E90FF"}).siblings().css({"background":"gray"})
+			})
+			$(ele).mouseout(function(){
+				$(this).css({"background":"gray"});
+				$(".active").css({"background":"#1E90FF"});
+			})
+		}
+		clickObj(".nav>li");
+	</script>
+</html>

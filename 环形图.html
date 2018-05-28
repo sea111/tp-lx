@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="pie" style="width:300px;height:300px;"></div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	<script type="text/javascript" src="js/echarts.min.js" ></script>
+	<script>
+		var pie = echarts.init(document.getElementById("pie"));
+		var dataStyle = {
+		    normal: {
+		    	color:"skyblue",
+		        label: {show:false},
+		        labelLine: {show:false}
+		    }
+		};
+		var placeHolderStyle = {
+		    normal : {
+		        color: '#fff',
+		        label: {show:false},
+		        labelLine: {show:false}
+		    },
+		    emphasis : {
+		        color: 'skyblue'
+		    }
+		};
+		option = {
+		    /*title: {
+		        text: '省名',
+		        subtext: 'From ExcelHome',
+		        sublink: 'http://e.weibo.com/1341556070/AhQXtjbqh',
+		        x: 'center',
+		        y: 'center',
+		        itemGap: 20,
+		        textStyle : {
+		            color : 'rgba(30,144,255,0.8)',
+		            fontFamily : '微软雅黑',
+		            fontSize : 35,
+		            fontWeight : 'bold'
+		        }
+		    },*/
+		    tooltip : {
+		        show: true,
+		        formatter: "{a} <br/>{b} : {c} ({d}%)"
+		    },
+		    legend: {
+		    	show:false,
+		        orient : 'vertical',
+		        x : document.getElementById('pie').offsetWidth / 2,
+		        y : 45,
+		        itemGap:12,
+		        data:["北京","上海","杭州","宁夏","江苏"]
+		    },
+		    series : [
+		        {
+		            name:'1',
+		            type:'pie',
+		            clockWise:true,
+		            radius : [75, 60],
+		            itemStyle : dataStyle,
+		            data:[
+		                {
+		                    value:10,
+		                    name:'北京'
+		                },
+		                {
+		                    value:20,
+		                    name:'invisible',
+		                    itemStyle : placeHolderStyle
+		                }
+		            ]
+		        },
+		        {
+		            name:'2',
+		            type:'pie',
+		            clockWise:true,
+		            radius : [100, 125],
+		            itemStyle : dataStyle,
+		            data:[
+		                {
+		                    value:10, 
+		                    name:'上海'
+		                },
+		                {
+		                    value:20,
+		                    name:'invisible',
+		                    itemStyle : placeHolderStyle
+		                }
+		            ]
+		        },
+		        {
+		            name:'3',
+		            type:'pie',
+		            clockWise:true,
+		            radius : [100, 125],
+		            itemStyle : dataStyle,
+		            data:[
+		                {
+		                    value:10, 
+		                    name:'杭州'
+		                },
+		                {
+		                    value:20,
+		                    name:'invisible',
+		                    itemStyle : placeHolderStyle
+		                }
+		            ]
+		        },
+		        {
+		            name:'4',
+		            type:'pie',
+		            clockWise:true,
+		            radius : [75, 60],
+		            itemStyle : dataStyle,
+		            data:[
+		                {
+		                    value:10, 
+		                    name:'宁夏'
+		                },
+		                {
+		                    value:20,
+		                    name:'invisible',
+		                    itemStyle : placeHolderStyle
+		                }
+		            ]
+		        },
+		        {
+		            name:'5',
+		            type:'pie',
+		            clockWise:true,
+		            radius : [100, 125],
+		            itemStyle : dataStyle,
+		            data:[
+		                {
+		                    value:10, 
+		                    name:'江苏'
+		                },
+		                {
+		                    value:20,
+		                    name:'invisible',
+		                    itemStyle : placeHolderStyle
+		                }
+		            ]
+		        }
+		    ]
+		};
+        pie.setOption(option);         
+	</script>
+</html>
